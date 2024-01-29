@@ -1,0 +1,10 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TestTask" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimaryMenu">@color/green</item>
+        <item name="colorPrimaryText">@color/white</item>
+        <item name="colorPrimaryBtn">@color/green</item>
+    </style>
+
+    <style name="Theme.TestTask" parent="Base.Theme.TestTask" />
+</resources>

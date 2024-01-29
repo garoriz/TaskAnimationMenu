@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Text" parent="TextAppearance.AppCompat" />
+
+    <style name="BottomCardView">
+        <item name="cardCornerRadius">@dimen/x0</item>
+        <item name="cardBackgroundColor">?attr/colorPrimaryMenu</item>
+    </style>
+
+    <style name="Text.Size24">
+        <item name="android:textSize">@dimen/size24</item>
+    </style>
+
+    <style name="Text.Size24.Primary">
+        <item name="android:textColor">?attr/colorPrimaryText</item>
+    </style>
+</resources>

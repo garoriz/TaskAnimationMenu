@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorPrimaryMenu" format="color" />
+    <attr name="colorPrimaryText" format="color" />
+    <attr name="colorPrimaryBtn" format="color" />
+</resources>
