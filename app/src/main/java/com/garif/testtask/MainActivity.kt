@@ -1,15 +1,16 @@
 package com.garif.testtask
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AnimationUtils
+import android.view.animation.AccelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.garif.testtask.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var isHideMenu = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,26 +18,46 @@ class MainActivity : AppCompatActivity() {
             setContentView(it.root)
         }
 
-        with (binding) {
+        with(binding) {
+            setListenerToDestroy(svSettings)
+            setListenerToDestroy(svHome)
+            setListenerToDestroy(svSearch)
+            setListenerToDestroy(svTime)
+            setListenerToDestroy(svWindow)
+
             btnMenu.setOnClickListener {
-                animateMenu(ibSettings)
-                animateMenu(ibHome)
-                animateMenu(ibSearch)
-                animateMenu(ibTime)
-                animateMenu(ibWindow)
+                selectAnimationDirection(svSettings)
+                selectAnimationDirection(svHome)
+                selectAnimationDirection(svSearch)
+                selectAnimationDirection(svTime)
+                selectAnimationDirection(svWindow)
+
+                isHideMenu = !isHideMenu
             }
         }
     }
 
-    private fun animateMenu(view: View) {
-        if (!view.isVisible) {
-            val animation = AnimationUtils.loadAnimation(this, R.anim.slide_up)
-            view.visibility = View.VISIBLE
-            view.startAnimation(animation)
-        } else {
-            val animation = AnimationUtils.loadAnimation(this, R.anim.slide_down)
-            view.visibility = View.GONE
-            view.startAnimation(animation)
+    private fun selectAnimationDirection(view: View) {
+        if (isHideMenu)
+            animateMenuButton(view, resources.getDimension(R.dimen.x0))
+        else
+            animateMenuButton(view, resources.getDimension(R.dimen.x35))
+    }
+
+    private fun animateMenuButton(view: View, y: Float) {
+        ObjectAnimator.ofFloat(view, "translationY", dipToPixels(y)).apply {
+            interpolator = AccelerateInterpolator()
+            duration = 500
+            start()
+        }
+    }
+
+
+    private fun setListenerToDestroy(swipeView: SwipeView) {
+        swipeView.setOnSwipeListener {
+            with(binding) {
+                layout.removeView(swipeView)
+            }
         }
     }
 }

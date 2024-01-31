@@ -4,4 +4,5 @@
     <dimen name="x1">8dp</dimen>
     <dimen name="x2">16dp</dimen>
     <dimen name="x5">40dp</dimen>
+    <dimen name="x35">280dp</dimen>
 </resources>

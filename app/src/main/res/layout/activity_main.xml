@@ -1,17 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@drawable/background"
+    android:gravity="bottom|end"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <com.garif.testtask.SwipeView
+        android:id="@+id/sv_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x2"
+        android:translationY="@dimen/x35">
+
+        <ImageButton
+            android:layout_width="@dimen/x5"
+            android:layout_height="@dimen/x5"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/x2"
+            android:background="@drawable/btn_bg"
+            app:srcCompat="@drawable/settings" />
+    </com.garif.testtask.SwipeView>
+
+    <com.garif.testtask.SwipeView
+        android:id="@+id/sv_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x2"
+        android:translationY="@dimen/x35"
+        tools:visibility="visible">
+
+        <ImageButton
+            android:layout_width="@dimen/x5"
+            android:layout_height="@dimen/x5"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/x2"
+            android:background="@drawable/btn_bg"
+            app:srcCompat="@drawable/home" />
+    </com.garif.testtask.SwipeView>
+
+    <com.garif.testtask.SwipeView
+        android:id="@+id/sv_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x2"
+        android:translationY="@dimen/x35"
+        tools:visibility="visible">
+
+        <ImageButton
+            android:layout_width="@dimen/x5"
+            android:layout_height="@dimen/x5"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/x2"
+            android:background="@drawable/btn_bg"
+            app:srcCompat="@drawable/search" />
+    </com.garif.testtask.SwipeView>
+
+    <com.garif.testtask.SwipeView
+        android:id="@+id/sv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x2"
+        android:translationY="@dimen/x35"
+        tools:visibility="visible">
+
+        <ImageButton
+            android:layout_width="@dimen/x5"
+            android:layout_height="@dimen/x5"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/x2"
+            android:background="@drawable/btn_bg"
+            app:srcCompat="@drawable/baseline_access_time_24" />
+    </com.garif.testtask.SwipeView>
+
+    <com.garif.testtask.SwipeView
+        android:id="@+id/sv_window"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x2"
+        android:translationY="@dimen/x35"
+        tools:visibility="visible">
+
+        <ImageButton
+            android:layout_width="@dimen/x5"
+            android:layout_height="@dimen/x5"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/x2"
+            android:background="@drawable/btn_bg"
+            app:srcCompat="@drawable/baseline_crop_square_24" />
+    </com.garif.testtask.SwipeView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_control_panel"
         style="@style/BottomCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         app:cardElevation="@dimen/x1"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -31,77 +120,4 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
-    <ImageButton
-        android:id="@+id/ib_settings"
-        android:layout_width="@dimen/x5"
-        android:layout_height="@dimen/x5"
-        android:layout_marginEnd="@dimen/x2"
-        android:layout_marginBottom="@dimen/x2"
-        android:background="@drawable/btn_bg"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/ib_home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/settings"
-        tools:layout_editor_absoluteX="217dp"
-        tools:layout_editor_absoluteY="291dp"
-        tools:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/ib_home"
-        android:layout_width="@dimen/x5"
-        android:layout_height="@dimen/x5"
-        android:layout_marginEnd="@dimen/x2"
-        android:layout_marginBottom="@dimen/x2"
-        android:background="@drawable/btn_bg"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/ib_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/home"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="325dp"
-        tools:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/ib_search"
-        android:layout_width="@dimen/x5"
-        android:layout_height="@dimen/x5"
-        android:layout_marginEnd="@dimen/x2"
-        android:layout_marginBottom="@dimen/x2"
-        android:background="@drawable/btn_bg"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/ib_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/search"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="404dp"
-        tools:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/ib_time"
-        android:layout_width="@dimen/x5"
-        android:layout_height="@dimen/x5"
-        android:layout_marginEnd="@dimen/x2"
-        android:layout_marginBottom="@dimen/x2"
-        android:background="@drawable/btn_bg"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/ib_window"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_access_time_24"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="483dp"
-        tools:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/ib_window"
-        android:layout_width="@dimen/x5"
-        android:layout_height="@dimen/x5"
-        android:layout_marginEnd="@dimen/x2"
-        android:layout_marginBottom="@dimen/x2"
-        android:background="@drawable/btn_bg"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/cv_control_panel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_crop_square_24"
-        tools:visibility="visible" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
