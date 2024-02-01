@@ -3,7 +3,6 @@ package com.garif.testtask
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AccelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.garif.testtask.databinding.ActivityMainBinding
 
@@ -26,28 +25,27 @@ class MainActivity : AppCompatActivity() {
             setListenerToDestroy(svWindow)
 
             btnMenu.setOnClickListener {
-                selectAnimationDirection(svSettings)
-                selectAnimationDirection(svHome)
-                selectAnimationDirection(svSearch)
-                selectAnimationDirection(svTime)
-                selectAnimationDirection(svWindow)
+                selectAnimationDirection(svSettings, resources.getDimension(R.dimen.x35))
+                selectAnimationDirection(svHome, resources.getDimension(R.dimen.x28))
+                selectAnimationDirection(svSearch, resources.getDimension(R.dimen.x21))
+                selectAnimationDirection(svTime, resources.getDimension(R.dimen.x14))
+                selectAnimationDirection(svWindow, resources.getDimension(R.dimen.x7))
 
                 isHideMenu = !isHideMenu
             }
         }
     }
 
-    private fun selectAnimationDirection(view: View) {
+    private fun selectAnimationDirection(view: View, y: Float) {
         if (isHideMenu)
             animateMenuButton(view, resources.getDimension(R.dimen.x0))
         else
-            animateMenuButton(view, resources.getDimension(R.dimen.x35))
+            animateMenuButton(view, y)
     }
 
     private fun animateMenuButton(view: View, y: Float) {
         ObjectAnimator.ofFloat(view, "translationY", dipToPixels(y)).apply {
-            interpolator = AccelerateInterpolator()
-            duration = 500
+            duration = 800
             start()
         }
     }

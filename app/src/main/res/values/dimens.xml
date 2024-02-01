@@ -4,5 +4,10 @@
     <dimen name="x1">8dp</dimen>
     <dimen name="x2">16dp</dimen>
     <dimen name="x5">40dp</dimen>
+    <dimen name="x7">56dp</dimen>
+    <dimen name="x15">60dp</dimen>
+    <dimen name="x14">112dp</dimen>
+    <dimen name="x21">168dp</dimen>
+    <dimen name="x28">224dp</dimen>
     <dimen name="x35">280dp</dimen>
 </resources>
